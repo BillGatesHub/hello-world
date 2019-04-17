@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>	/*Note: If you are using landscape images use 'background-size:auto 100%;' in .textOverImage and 'background-size:auto 110%;' in .textOverImage:hover*/
+  a{
+    text-decoration:none;
+    }/*Add the following compatibility code for IE as you can't animate background-size in IE*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  {
+    .textOverImage{
+      background-size:cover!important;
+    }
+}
+.textOverImage{
+          position:relative;
+          width:300px;
+          height:300px;
+          float:left;
+          margin:4px;
+          background-size:100%;
+          background-position:center;
+          overflow:hidden;
+          border-radius:4px;
+          /*box-shadow:0 0 4px #000;*/
+    }
+  .textOverImage .number{
+    display: none;
+  }
+  .textOverImage:hover .number{
+    position:relative;
+    width:300px;
+    height:300px;
+    float:left;
+    margin:0px;
+    background-size:100%;
+    background-position:center;
+    overflow:hidden;
+    border-radius:4px;
+    /*box-shadow:0 0 4px #000;*/
+    display: block;
+  }
+  .textOverImage:hover{
+          background-size:110%;
+    }
+.textOverImage:before{
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        transform:translateY(100%);/*use transform:translateY(100%); to remove footer*/
+        background-color:rgba(0,0,0,1);
+        color:#fff;
+        padding:0 10px;
+        content:attr(data-title);
+        color:#fff;
+        font-weight:bold;
+        font-size:1.5em;
+        }
+  .textOverImage:after{
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        color:#fff;
+        padding:8px;
+        content:attr(data-text);
+        padding-top:2em;
+        margin-top:8px;
+        transform:translateY(100%);
+        opacity:0;
+        }
+  .textOverImage:hover:after{
+        transform:translateY(0);
+        opacity:1;
+    }
+</style>
+</head>
+<body>
+      <span class="textOverImage"	style="background-image:url(https://static.wixstatic.com/media/f9d1fe_767a64a1184442929979ee1fd6ff37a2~mv2.jpg)">
+        <img class="number" src="Tile 1.png" alt="title">
+  	  </span>
+	    <span class="textOverImage"	style="background-image:url(https://static.wixstatic.com/media/f9d1fe_6eb110fb2d214c45977166e969a01eb8~mv2.jpg)">
+       		<img class="number" src="Tile 2.png" alt="title">
+      </span>
+      <span class="textOverImage"	style="background-image:url(https://static.wixstatic.com/media/f9d1fe_5926dffa9eb4431cbc65030970459bd3~mv2.jpg)">
+          <img class="number" src="Tile 3.png" alt="title">
+      </span>
+   </body>
+</html>
